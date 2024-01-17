@@ -153,18 +153,11 @@ cdef class Packet:
 
     cpdef bytes get_payload(self):
         """Return payload as Python string."""
-        print('-----------------')
-        for k, v in self.__dict__.items():
-            print(k,v)
-        print('----------------')
         if self._given_payload:
-            print('Given!')
             return self._given_payload
         elif self._owned_payload:
-            print('Owned!')
             return self._owned_payload
         elif self.payload != NULL:
-            print('Payload!')
             return self.payload[:self.payload_len]
         elif self.payload_len == 0:
             raise RuntimeError(
