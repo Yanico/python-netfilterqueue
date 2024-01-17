@@ -154,8 +154,8 @@ cdef class Packet:
     cpdef bytes get_payload(self):
         """Return payload as Python string."""
         print('-----------------')
-        for attr in dir(self):
-            print("obj.%s = %r" % (attr, getattr(self, attr)))
+        for k, v in self.__dict__.items():
+            print(k,v)
         print('----------------')
         if self._given_payload:
             print('Given!')
