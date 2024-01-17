@@ -153,9 +153,11 @@ cdef class Packet:
 
     cpdef bytes get_payload(self):
         """Return payload as Python string."""
+        print('Finally!!!!!!!!')
         if self._given_payload:
             return self._given_payload
         elif self._owned_payload:
+            print('LUUUUL!')
             return self._owned_payload
         elif self.payload != NULL:
             return self.payload[:self.payload_len]
